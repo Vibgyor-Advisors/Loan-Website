@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Vibgyor Advisors</title>
+    <link href="assets\css\main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link data-require="fontawesome@5.5.0" data-semver="5.5.0" rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<style>
+    body {
+  background:#5598ac;
+  
+}
+   
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: 'Open Sans', sans-serif;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+  border-radius:1.3rem;
+}
+
+h1 {
+  text-align: center; 
+  color:#3fa5c4 
+}
+h2{
+   
+    color:#3fa5c4
+}
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family:'Open Sans', sans-serif;
+  border: 1px solid #aaaaaa;
+}
+
+
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+button {
+  background-color:#5bc0de;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: 'Open Sans', sans-serif;
+  border-radius:1.4rem;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color:#5bc0de;
+}
+
+.caption {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 25px;
+  text-align: center;
+}
+.tr {
+  display: flex;
+}
+.td {
+  width: 20%;
+  border: 1px solid #777;
+  padding: 10px;
+}
+.th {
+  display: flex;
+  background: yellowgreen;
+  color: white;
+}
+.tr:nth-of-type(even) {
+  background: pink;
+}
+
+@media (max-width: 600px), (max-device-width: 600px) {
+  .th {
+    display: none;
+  }
+  .tr {
+    display: block;
+    margin-bottom: 25px;
+    background: transparent !important;
+  }
+  .td {
+    background: #f0f0f0;
+    display: flex;
+    width: 90%;
+    margin: auto;
+  }
+  .td:before {
+    font-weight: bold;
+    display: block;
+    width: 50%;
+  }
+  .td:nth-of-type(1) {
+    background: yellowgreen !important;;
+    color: white;
+    font-weight: bold;
+  }
+  .td:nth-of-type(odd) {
+    background:pink;
+    color: white;
+    font-weight: bold;
+  }
+  .td:nth-of-type(1):before{
+    content: "No.:";
+  }
+  .td:nth-of-type(2):before {
+    content: "Banks:";
+  }
+ 
+  .td:nth-of-type(3):before {
+    content: "Contact Person:";
+  }
+  .td:nth-of-type(4):before {
+    content: "Phone Number:";
+  }
+  .td:nth-of-type(5):before {
+    content: "Payout:";
+  }
+}
+
+@media (max-device-width: 600px) {
+  .table {
+    font-size: 2rem;
+  }
+  .td {
+    padding: 20px;
+  }
+}
+.sources{
+  margin:4%;
+}
+</style>
+<body>
+    
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container">
+                <a href="#" class="navbar-brand"><img src="assets/Images/main.png" alt=""></a>
+                
+                <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#main-nav">
+                    <span class="menu-icon-bar"></span>
+                    <span class="menu-icon-bar"></span>
+                    <span class="menu-icon-bar"></span>
+                </button>
+                
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li><a href="index.html" class="nav-item nav-link active">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-item nav-link" data-toggle="dropdown">Services</a>
+                            <div class="dropdown-menu">
+                                <a href="Home_Loan.html" class="dropdown-item">Home Loan</a>
+                                <a href="Personal_Loan.html" class="dropdown-item">Personal Loan</a>
+                                <a href="Business_Loan.html" class="dropdown-item">Business Loan</a>
+                                <a href="LAP.html" class="dropdown-item">Loan Against Property</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <h1 style="color: aliceblue; margin:5%;">Business Loan</h1>
+        <form id="regForm" action="">
+            <h1>Details:</h1>
+            
+            <div class="tab">
+                <h2>Age of the Client:<h2>
+              <p><input placeholder="dd/mm/yyyy" type="date" oninput="this.className = ''" name="dob"></p>
+              <h2>Loan Tenure of the Client:<h2>
+              <p><input placeholder="Loan Tenure" oninput="this.className = ''" name="tenure"></p>
+              <h2>Client Location:<h2>
+                <p><input placeholder="Location" oninput="this.className = ''" name="location"></p>
+                <h2>Salary/Self-Employed:<h2>
+                  <p><input placeholder="Income.." oninput="this.className = ''" name="income"></p>
+            </div>
+            <div class="tab">
+              <h2>ITR:</h2>
+                <p><input placeholder="ITR" oninput="this.className = ''" name="itr"></p>
+                <h2>Prop in Gram Panchayat/Municipal:<h2>
+                  <p><input  oninput="this.className = ''" name="prop"></p>
+                  <h2>Cibil Score:<h2>
+                    <p><input placeholder="Cibil Score.." oninput="this.className = ''" name="cibil"></p>
+            </div>
+            <div class="tab">
+              <h2>Degree of difficulty:<h2>
+                <p><input placeholder="" oninput="this.className = ''" name="difficulty"></p>
+                <h2>Paperwork:<h2>
+                  <p><input placeholder="" oninput="this.className = ''" name="paper"></p>
+                  <h2>Eligibility Value:<h2>
+                    <p><input placeholder="" oninput="this.className = ''" name="eligibility"></p>
+                   <h2>Credit Worthiness:<h2>
+                      <p><input placeholder="" oninput="this.className = ''" name="credit"></p>
+            </div>
+            <div class="tab">
+              <h2>Products Dropdown In case of Self-Employed:<h2>
+                <select id="products" name="products">
+                  <option value="product1"><h2>Banking Surrogate<h2></option>
+                  <option value="product2"><h2>LIP</h2></option>
+                  <option value="product3"><h2>OD</h2></option>
+                  <option value="product4"><h2>Low LTV</h2></option>
+                </select>
+            </div>
+            <div style="overflow:auto;">
+              <div style="float:right;">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+              </div>
+            </div>
+            
+            <div style="text-align:center;margin-top:40px;">
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+            </div>
+          </form>
+        <section class="sources">
+          <div class="caption">Business Loan Peers:</div>
+          <div class="table">
+            <div class="th">
+              <div class="td">No.</div>
+              <div class="td">Banks</div>
+              <div class="td">Contact Person</div>
+              <div class="td">Phone Number</div>
+              <div class="td">Payout</div>
+            </div>
+            <div class="tbody">
+              <div class="tr">
+                <div class="td">1.</div>
+                <div class="td">XYZ</div>
+                <div class="td">Qwerty</div>
+                <div class="td">98765 43210</div>
+                <div class="td">1.4%</div>
+              </div>
+              <div class="tr">
+                <div class="td">2.</div>
+                <div class="td">XYZ</div>
+                <div class="td">Qwerty</div>
+                <div class="td">98765 43210</div>
+                <div class="td">1.4%</div>
+              </div>
+              <div class="tr">
+                <div class="td">3.</div>
+                <div class="td">XYZ</div>
+                <div class="td">Qwerty</div>
+                <div class="td">98765 43210</div>
+                <div class="td">1.4%</div>
+              </div>
+              <div class="tr">
+                <div class="td">4.</div>
+                <div class="td">XYZ</div>
+                <div class="td">Qwerty</div>
+                <div class="td">98765 43210</div>
+                <div class="td">1.4%</div>
+              </div>
+            </div>
+          </div>
+    </section>
+    
+    <script src='assets/js/main.js'></script>  
+    <script src="assets/js/home.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

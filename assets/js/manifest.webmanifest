@@ -1,0 +1,18 @@
+{
+   "name":"Vibgyor Advisors",
+   "short_name":"vibgyor",
+"start_url":".",
+"description":"It's a Loan Calculating App",
+"display":"standalone",
+"orientation":"portrait",
+"background_color":"#5bc0de",
+"theme_color":"#5bc0de",
+"icons":[
+   {
+      "src":"Images/main.png",
+      "sizes":"144x144",
+      "type":"image/png"
+   }
+   
+]
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Vibgyor Advisors</title>
+        <link href="assets\css\main.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link data-require="fontawesome@5.5.0" data-semver="5.5.0" rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
+               
+    </head>
+    
+<header class="header-area overlay">
+    <nav class="navbar navbar-expand-md navbar-dark">
+		<div class="container">
+			<a href="#" class="navbar-brand"><img src="assets/Images/main.png" alt=""></a>
+			
+			<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#main-nav">
+				<span class="menu-icon-bar"></span>
+				<span class="menu-icon-bar"></span>
+				<span class="menu-icon-bar"></span>
+			</button>
+			
+			<div id="main-nav" class="collapse navbar-collapse">
+				<ul class="navbar-nav ml-auto">
+					<li><a href="index.html" class="nav-item nav-link active">Home</a></li>
+					<li class="dropdown">
+						<a href="#" class="nav-item nav-link" data-toggle="dropdown">Services</a>
+						<div class="dropdown-menu">
+							<a href="Home_Loan.html" class="dropdown-item">Home Loan</a>
+							<a href="Personal_Loan.html" class="dropdown-item">Personal Loan</a>
+							<a href="Business_Loan.html" class="dropdown-item">Business Loan</a>
+							<a href="LAP.html" class="dropdown-item">Loan Against Property</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="banner">
+		<div class="container">
+			<h1>In need of a Loan?</h1>
+			<p>Don't worry ,we are here to help you guide you and get you a loan according to your need.</p>
+			<a href="#content" class="button button-primary">Learn More</a>
+		</div>
+	</div>
+</header>
+
+<main>
+	<section id="content" class="content">
+		<div class="container">
+                  <div class="pip">
+            <h1>What are you in need of?</h1>
+        </div>
+			<div class="row">
+           
+				<div class="col-sm-12 col-md-6">
+                    <a target="_top" href="Home_Loan.html" style="text-decoration: none;">
+                    <div class="loan-card">
+                        <div class="card-contents">
+                          <h2 class="card-title">Home Loan</h2>
+                        </div>
+                      </div>
+                      </a>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<a target="_top" href="LAP.html" style="text-decoration: none;">
+                    <div class="loan-card">
+                        <div class="card-contents">
+                          <h2 class="card-title">Loan Against Property</h2>
+                        </div>
+                      </div>
+					  </a>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<a target="_top" href="Personal_Loan.html" style="text-decoration: none;">
+                    <div class="loan-card">
+                        <div class="card-contents">
+                          <h2 class="card-title">Personal Loan</h2>
+                        </div>
+                      </div>
+					  </a>	
+                </div>
+                <div class="col-sm-12 col-md-6">
+					<a target="_top" href="Business_Loan.html" style="text-decoration: none;">
+                    <div class="loan-card">
+                        <div class="card-contents">
+                          <h2 class="card-title">Business Loan</h2>
+                        </div>
+                      </div>
+					  </a>
+				</div>
+				
+			
+			</div>
+		</div>
+	</section>
+</main>
+<script>
+if('serviceWorker' in navigator)
+    {
+        navigator.serviceWorker.register('assets/js/serviceWorker.js')
+        .then(function(){
+console.log('Service Worker registered');
+        });
+    }
+</script>
+<script src="assets/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
