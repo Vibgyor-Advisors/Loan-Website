@@ -207,44 +207,47 @@ button:hover {
         <h1 style="color: aliceblue; margin:5%;">Loan Against Property</h1>
         <form id="regForm" action="">
             <h1>Details:</h1>
-            
             <div class="tab">
-                <h2>Age of the Client:<h2>
-              <p><input placeholder="dd/mm/yyyy" type="date" oninput="this.className = ''" name="dob"></p>
-              <h2>Loan Tenure of the Client:<h2>
-              <p><input placeholder="Loan Tenure" oninput="this.className = ''" name="tenure"></p>
-              <h2>Client Location:<h2>
-                <p><input placeholder="Location" oninput="this.className = ''" name="location"></p>
-                <h2>Salary/Self-Employed:<h2>
-                  <p><input placeholder="Income.." oninput="this.className = ''" name="income"></p>
-            </div>
-            <div class="tab">
-              <h2>ITR:</h2>
-                <p><input placeholder="ITR" oninput="this.className = ''" name="itr"></p>
-                <h2>Prop in Gram Panchayat/Municipal:<h2>
-                  <p><input  oninput="this.className = ''" name="prop"></p>
-                  <h2>Cibil Score:<h2>
-                    <p><input placeholder="Cibil Score.." oninput="this.className = ''" name="cibil"></p>
-            </div>
-            <div class="tab">
-              <h2>Degree of difficulty:<h2>
-                <p><input placeholder="" oninput="this.className = ''" name="difficulty"></p>
-                <h2>Paperwork:<h2>
-                  <p><input placeholder="" oninput="this.className = ''" name="paper"></p>
-                  <h2>Eligibility Value:<h2>
-                    <p><input placeholder="" oninput="this.className = ''" name="eligibility"></p>
-                   <h2>Credit Worthiness:<h2>
-                      <p><input placeholder="" oninput="this.className = ''" name="credit"></p>
-            </div>
-            <div class="tab">
-              <h2>Products Dropdown In case of Self-Employed:<h2>
-                <select id="products" name="products">
-                  <option value="product1"><h2>Banking Surrogate<h2></option>
-                  <option value="product2"><h2>LIP</h2></option>
-                  <option value="product3"><h2>OD</h2></option>
-                  <option value="product4"><h2>Low LTV</h2></option>
-                </select>
-            </div>
+              <h2>Age of the Client:<h2>
+            <p><input placeholder="dd/mm/yyyy" type="date" oninput="this.className = ''" name="dob"></p>
+            <h2>Loan Tenure of the Client:<h2>
+            <p><input placeholder="Loan Tenure" oninput="this.className = ''" name="tenure"></p>
+            <h2>Client Location:<h2>
+              <p><input placeholder="Location" oninput="this.className = ''" name="location"></p>
+          </div>
+          <div class="tab">
+            <h2>ITR:</h2>
+              <p><input placeholder="ITR" oninput="this.className = ''" name="itr"></p>
+              <h2>Prop in:
+              <select id="income-drop" name="income-drop">
+                <option value="salary"><h2>Municipality<h2></option>
+                <option value="self-employed"><h2>Gram Panchayat</h2></option>
+               
+              </select></h2>
+                <h2>Cibil Score:</h2>
+                <p><input placeholder="" oninput="this.className = ''" name="credit" type="number" min="1" max="12"></p>
+                   
+          </div>
+          <div class="tab">
+              <h2>Paperwork:<h2>
+                <p><input placeholder="" oninput="this.className = ''" name="paper"></p>
+              <h2>Credit Worthiness:<h2>
+                <p><input placeholder="" oninput="this.className = ''" name="credit"></p>
+          </div>
+          <div class="tab">
+            <h2><select id="income-drop" name="income-drop">
+              <option value="salary"><h2>Salary<h2></option>
+              <option value="self-employed"><h2>Self Employed</h2></option>
+             
+            </select></h2>
+            <h2>Products Dropdown In case of Self-Employed:<h2>
+              <select id="products" name="products">
+                <option value="product1"><h2>Banking Surrogate<h2></option>
+                <option value="product2"><h2>LIP</h2></option>
+                <option value="product3"><h2>OD</h2></option>
+                <option value="product4"><h2>Low LTV</h2></option>
+              </select>
+          </div>
             <div style="overflow:auto;">
               <div style="float:right;">
                 <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
