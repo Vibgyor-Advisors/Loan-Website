@@ -27,7 +27,6 @@ function showTab(n) {
 }
 
 function nextPrev(n) {
-<<<<<<< HEAD
   
   var x = document.getElementsByClassName("tab");
   // Exit the function if any field in the current tab is invalid:
@@ -44,52 +43,6 @@ function nextPrev(n) {
   }
   // Otherwise, display the correct tab:
   showTab(currentTab);
-=======
-    // This function will figure out which tab to display
-
-    console.log('YOu have submitted regForm');
-    let LoanTenure = document.getElementById('LoanTenure').value;
-    let date = document.getElementById('date').value;
-    let cLocation = document.getElementById('cLocation').value;
-    let sincome = document.getElementById('sincome').value;
-    let grampanchayat = document.getElementById('grampanchayat').value;
-    let cililscore = document.getElementById('cililscore').value;
-    let dodifficulty = document.getElementById('dodifficulty').value;
-    let paperwork = document.getElementById('paperwork').value;
-    let creditworth = document.getElementById('creditworth').value;
-    let products = document.getElementById('products').value;
-
-
-
-
-
-
-    var x = document.getElementsByClassName("tab");
-    // Exit the function if any field in the current tab is invalid:
-    if (n == 1 && !validateForm()) return false;
-    // Hide the current tab:
-    x[currentTab].style.display = "none";
-    // Increase or decrease the current tab by 1:
-    currentTab = currentTab + n;
-    // if you have reached the end of the form...
-    if (currentTab >= x.length) {
-        // ... the form gets submitted:
-        console.log(LoanTenure);
-        console.log(date);
-        console.log(cLocation);
-        console.log(sincome);
-        console.log(grampanchayat);
-        console.log(cililscore);
-        console.log(dodifficulty);
-        console.log(paperwork);
-        console.log(creditworth);
-        console.log(products);
-        // document.getElementById("regForm").submit();
-        return false;
-    }
-    // Otherwise, display the correct tab:
-    showTab(currentTab);
->>>>>>> f4912b9bc6398b26d7c57f771abe6a5bed7a42bd
 }
 
 function validateForm() {
