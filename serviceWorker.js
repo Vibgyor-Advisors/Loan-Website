@@ -11,19 +11,19 @@ self.addEventListener('fetch', event => {
     console.log('Service Worker: Fetching...')
     event.respondWith(
         fetch(event.request)
-            .then(response => {
-                // Make a copy of the server request
-                const resClone = response.clone();
+        .then(response => {
+            // Make a copy of the server request
+            const resClone = response.clone();
 
-                // Open Cache
-                caches
-                    .open(CACHE_NAME)
-                    .then(cache => {
-                        // Add response to the cache
-                        cache.put(event.request, resClone).then(response => response);
-                    });
-                return response;
-            }).catch(() => caches.match(event.request).then(response => response))
+            // Open Cache
+            caches
+                .open(CACHE_NAME)
+                .then(cache => {
+                    // Add response to the cache
+                    cache.put(event.request, resClone).then(response => response);
+                });
+            return response;
+        }).catch(() => caches.match(event.request).then(response => response))
     )
 });
 
@@ -45,3 +45,4 @@ self.addEventListener('activate', event => {
         })
     );
 });
+////////
