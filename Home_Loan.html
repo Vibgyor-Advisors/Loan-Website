@@ -7,10 +7,8 @@
     <link rel="icon" href="assets/Images/favicon.png">
     <title>Vibgyor Advisors</title>
     <link href="assets\css\main.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link data-require="fontawesome@5.5.0" data-semver="5.5.0" rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link data-require="fontawesome@5.5.0" data-semver="5.5.0" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -19,7 +17,7 @@
     body {
         background: #5598ac;
     }
-
+    
     #regForm {
         background-color: #ffffff;
         margin: 100px auto;
@@ -29,16 +27,16 @@
         min-width: 300px;
         border-radius: 1.3rem;
     }
-
+    
     h1 {
         text-align: center;
         color: #3fa5c4
     }
-
+    
     h2 {
         color: #3fa5c4
     }
-
+    
     input {
         padding: 10px;
         width: 100%;
@@ -46,17 +44,16 @@
         font-family: 'Open Sans', sans-serif;
         border: 1px solid #aaaaaa;
     }
-
+    
     input.invalid {
         background-color: #ffdddd;
     }
-
     /* Hide all steps by default: */
-
+    
     .tab {
         display: none;
     }
-
+    
     button {
         background-color: #5bc0de;
         color: #ffffff;
@@ -67,7 +64,7 @@
         border-radius: 1.4rem;
         cursor: pointer;
     }
-
+    
     #buttonsubmit {
         background-color: #5bc0de;
         color: #ffffff;
@@ -78,17 +75,16 @@
         border-radius: 1.4rem;
         cursor: pointer;
     }
-
+    
     button:hover {
         opacity: 0.8;
     }
-
+    
     #prevBtn {
         background-color: #bbbbbb;
     }
-
     /* Make circles that indicate the steps of the form: */
-
+    
     .step {
         height: 15px;
         width: 15px;
@@ -99,116 +95,121 @@
         display: inline-block;
         opacity: 0.5;
     }
-
+    
     .step.active {
         opacity: 1;
     }
-
     /* Mark the steps that are finished and valid: */
-
+    
     .step.finish {
         background-color: #5bc0de;
     }
-
+    
     .caption {
         font-size: 30px;
         font-weight: bold;
         margin: 25px;
         text-align: center;
     }
-
+    
     .tr {
         display: flex;
     }
-
+    
     .td {
         width: 20%;
         border: 1px solid #777;
         padding: 10px;
     }
-
+    
     .th {
         display: flex;
         background: yellowgreen;
         color: white;
     }
-
+    
     .tr:nth-of-type(even) {
         background: pink;
     }
-
+    
     @media (max-width: 600px),
     (max-device-width: 600px) {
         .th {
             display: none;
         }
-
         .tr {
             display: block;
             margin-bottom: 25px;
             background: transparent !important;
         }
-
         .td {
             background: #f0f0f0;
             display: flex;
             width: 90%;
             margin: auto;
         }
-
         .td:before {
             font-weight: bold;
             display: block;
             width: 50%;
         }
-
         .td:nth-of-type(1) {
             background: yellowgreen !important;
             ;
             color: white;
             font-weight: bold;
         }
-
         .td:nth-of-type(odd) {
             background: pink;
             color: white;
             font-weight: bold;
         }
-
         .td:nth-of-type(1):before {
             content: "No.:";
         }
-
         .td:nth-of-type(2):before {
             content: "Banks:";
         }
-
         .td:nth-of-type(3):before {
             content: "Contact Person:";
         }
-
         .td:nth-of-type(4):before {
             content: "Phone Number:";
         }
-
         .td:nth-of-type(5):before {
             content: "Payout:";
         }
     }
-
+    
     @media (max-device-width: 600px) {
         .table {
             font-size: 2rem;
         }
-
         .td {
             padding: 20px;
         }
     }
-
+    
     .sources {
         margin: 4%;
         display: none;
+    }
+    
+    #submitsty {
+        border-radius: 1rem;
+        background-color: lightgreen;
+        padding: .5rem;
+        margin-top: 1rem;
+    }
+    
+    .dropdownform {
+        background: lightblue;
+        font-size: 2rem;
+        border-radius: 1rem;
+        border: .3rem solid #a2a2a7;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
     }
 </style>
 
@@ -240,77 +241,77 @@
         </div>
     </nav>
     <script>
-        var salary="salary";
-        var q="";
-        var s="";
-        const handleform=async (e) => {
+        var salary = "salary";
+        var q = "";
+        var s = "";
+        const handleform = async(e) => {
             event.preventDefault();
             let dob = document.getElementById("dateofbirth").value;
             let clibil = document.getElementById("clibil").value;
-            const data = { dob, clibil, salary }
+            const data = {
+                dob,
+                clibil,
+                salary
+            }
             console.log(data);
             var today = new Date();
-           var birthDate = new Date(dob);
-          var age = today.getFullYear() - birthDate.getFullYear();
-          var m = today.getMonth() - birthDate.getMonth();
-          if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
-          {
-            age--;
-          }
-         if(age<18)
-             {
-                document.getElementById("source").style.display = "block";    
-                document.getElementById("source").innerHTML="<h1>You are below 18 year of age..</h1>"
-             }  
-            try {
-            const response = await axios.get(` http://127.0.0.1:5000/alldata/${dob}/${clibil}/${salary}`);
-            if(typeof response == "undefined") 
-            {
-                document.getElementById("source").style.display = "block";    
-              document.getElementById("source").innerHTML="<h1>Please wait Your Response is being processed..</h1>"
+            var birthDate = new Date(dob);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
             }
-            else
-            {
+            if (age < 18) {
+                document.getElementById("source").style.display = "block";
+                document.getElementById("source").innerHTML = "<h1>You are below 18 year of age..</h1>"
+            }
+            try {
+                const response = await axios.get(` http://127.0.0.1:5000/alldata/${dob}/${clibil}/${salary}`);
+                if (typeof response == "undefined") {
+                    document.getElementById("source").style.display = "block";
+                    document.getElementById("source").innerHTML = "<h1>Please wait Your Response is being processed..</h1>"
+                } else {
 
-               if(response.data.data.length>0)
-               {
-                 console.log(response.data.data);  
-                 document.getElementById("source").style.display = "block"; 
-                for(let i=0;i<response.data.data.length;i++)  
-                { 
-                     // console.log(response.data.data[i]); 
-                      q=document.getElementById("t1").innerHTML=`<div  class='tbody'><div class='tr'><div class='td'>${i+1}</div><div class='td'>${response.data.data[i].Name}</div><div class='td'>${response.data.data[i].Person}</div><div class='td'>${response.data.data[i].Phone}</div><div class='td'>${response.data.data[i].Payout}</div></div></div>`;
-                      s=s+q;
-                      
-                      console.log(s);
-                    // document.getElementById("tbody").innerHTML="<div>hello</world>";
-                    }   
-               }
-               
-              
-            }  
-           if(response.data.data.length>0) 
-              document.getElementById("t1").remove();
-           var p=document.getElementById("source").innerHTML;
-           p=p+s;
-           document.getElementById("source").innerHTML=p;
-           console.log(response);
-           console.log(p);
-           if(response.data.data.length==0)
-               {
-                document.getElementById("source").style.display = "block";    
-              
-                document.getElementById("source").innerHTML="<h1>No Data To show..</h1>"
-                
-               } 
-           } catch (error) {
-            console.error(error);
-          }
-         
+                    if (response.data.data.length > 0) {
+                        console.log(response.data.data);
+                        document.getElementById("source").style.display = "block";
+                        for (let i = 0; i < response.data.data.length; i++) {
+                            // console.log(response.data.data[i]); 
+                            q = document.getElementById("t1").innerHTML = `<div  class='tbody'><div class='tr'><div class='td'>${i + 1}</div><div class='td'>${response.data.data[i].Name}</div><div class='td'>${response.data.data[i].Person}</div><div class='td'>${response.data.data[i].Phone}</div><div class='td'>${response.data.data[i].Payout}</div></div></div>`;
+                            s = s + q;
+
+                            console.log(s);
+                            // document.getElementById("tbody").innerHTML="<div>hello</world>";
+                        }
+                    }
+
+
+                }
+                if (response.data.data.length > 0)
+                    document.getElementById("t1").remove();
+                var p = document.getElementById("source").innerHTML;
+                p = p + s;
+                document.getElementById("source").innerHTML = p;
+                console.log(response);
+                console.log(p);
+                if (response.data.data.length == 0) {
+                    document.getElementById("source").style.display = "block";
+
+                    document.getElementById("source").innerHTML = "<h1>No Data To show..</h1>"
+
+                }
+            } catch (error) {
+                console.error(error);
+            }
+
         }
+
         function getvalue() {
-         salary = document.getElementById("salary").value;
+            salary = document.getElementById("salary").value;
             console.log(salary);
+            // .style.visibility = "visible";
+            document.getElementById("nextBtn").style.display = "none";
+            document.getElementById("submitsty").style.visibility = "visible";
         }
     </script>
     <!-- akash -->
@@ -319,70 +320,66 @@
         <h1>Details:</h1>
 
         <div class="tab">
-            <h2>Age of the Client:<h2>
-                    <p><input placeholder="dd/mm/yyyy" type="date" oninput="this.className = ''" name="dob"
-                            id='dateofbirth'></p>
-                    <h2>Loan Tenure of the Client:<h2>
-                            <p><input placeholder="Loan Tenure" oninput="this.className = ''" name="tenure"></p>
-                            <h2>Client Location:<h2>
-                                    <p><input placeholder="Location" oninput="this.className = ''" name="location"></p>
-        </div>
-        <div class="tab">
+            <h2>Age of the Client:</h2>
+            <p><input placeholder="dd/mm/yyyy" type="date" oninput="this.className = ''" name="dob" id='dateofbirth'>
+            </p>
+            <h2>Loan Tenure of the Client: </h2>
+            <p><input placeholder="Loan Tenure" oninput="this.className = ''" name="tenure"></p>
+            <h2>Client Location:</h2>
+            <p><input placeholder="Location" oninput="this.className = ''" name="location"></p>
             <h2>ITR:</h2>
             <p><input placeholder="ITR" oninput="this.className = ''" name="itr"></p>
-            <h2>Prop in:
-                <select id="income-drop" name="income-drop">
-                    <option value="salary">
-                        <h2>Municipality<h2>
-                    </option>
-                    <option value="self-employed">
-                        <h2>Gram Panchayat</h2>
-                    </option>
-
-                </select>
-            </h2>
-            <h2>Cibil Score:</h2>
-            <p><input placeholder="" oninput="this.className = ''" name="credit" type="number" min="1" max="12"
-                    id="clibil"></p>
-
-        </div>
-        <div class="tab">
-            <h2>Paperwork:<h2>
-                    <p><input placeholder="" oninput="this.className = ''" name="paper"></p>
-                    <h2>Credit Worthiness:
-                        <h2>
-                            <p><input id="creditworth" placeholder="" oninput="this.className = ''" name="credit"></p>
-        </div>
-        <div class="tab">
-
-            <select id="salary" name="income-drop" onchange="getvalue()">
+            <h2>Prop in:</h2>
+            <select id="income-drop" name="income-drop" class="dropdownform">
                 <option value="salary">
-                    <h1>Salary<h1>
+                    <h2>Municipality</h2>
+                </option>
+                <option value="self-employed">
+                    <h2>Gram Panchayat</h2>
+                </option>
+                <option value="Other">
+                    <h2>Other</h2>
+                </option>
+
+            </select>
+
+            <h2>Cibil Score:</h2>
+            <p><input placeholder="" oninput="this.className = ''" name="credit" type="number" min="1" max="12" id="clibil"></p>
+            <h2>Paperwork:</h2>
+            <p><input placeholder="" oninput="this.className = ''" name="paper"></p>
+            <h2>Credit Worthiness:</h2>
+            <p><input id="creditworth" placeholder="" oninput="this.className = ''" name="credit"></p>
+
+            <h2>Your are Salary or Self Employed</h2>
+            <select id="salary" class="dropdownform" name="income-drop" onchange="getvalue()">
+                <option>
+                    <h1>Choose</h1>
+                </option>
+                <option value="salary">
+                    <h1>Salary</h1>
                 </option>
                 <option value="self-employed">
                     <h1>Self Employed</h1>
                 </option>
             </select>
-            <h2>Products Dropdown In case of Self-Employed:<h2>
-                    <select id="products" name="products">
-                        <option value="product1">
-                            <h2>Banking Surrogate<h2>
-                        </option>
-                        <option value="product2">
-                            <h2>LIP</h2>
-                        </option>
-                        <option value="product3">
-                            <h2>OD</h2>
-                        </option>
-                        <option value="product4">
-                            <h2>Low LTV</h2>
-                        </option>
-                    </select>
+            <h2>Products Dropdown In case of Self-Employed:</h2>
+            <select id="products" name="products" class="dropdownform">
+                <option value="product1">
+                    <h2>Banking Surrogate</h2>
+                </option>
+                <option value="product2">
+                    <h2>LIP</h2>
+                </option>
+                <option value="product3">
+                    <h2>OD</h2>
+                </option>
+                <option value="product4">
+                    <h2>Low LTV</h2>
+                </option>
+            </select>
         </div>
         <div style="overflow:auto;">
             <div style="float:right;">
-
-
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         <li><a href="index.html" class="nav-item nav-link active">Home</a></li>
@@ -398,94 +395,73 @@
                     </ul>
                 </div>
             </div>
-            </nav>
+
             <h1 style="color: aliceblue; margin:5%;">Home Loan</h1>
             <form id="regForm">
-                <h1>Details:</h1>
+
 
                 <div class="tab">
-                    <h2>Age of the Client:
-                        <h2>
-                            <p><input  placeholder="dd/mm/yyyy" type="date" oninput="this.className = ''"
-                                    name="dob" id='do'></p>
-                            <h2>Loan Tenure of the Client:
-                                <h2>
-                                    <p><input id="LoanTenure" placeholder="Loan Tenure" oninput="this.className = ''"
-                                            name="tenure"></p>
-                                    <h2>Client Location:
-                                        <h2>
-                                            <p><input id="cLocation" placeholder="Location"
-                                                    oninput="this.className = ''" name="location"></p>
-                                            <h2>Salary/Self-Employed:
-                                                <h2>
-                                                    <p><input id="sincome" placeholder="Income.."
-                                                            oninput="this.className = ''" name="income"></p>
-                </div>
-                <div class="tab">
+                    <h2>Age of the Client:</h2>
+                    <p><input placeholder="dd/mm/yyyy" type="date" oninput="this.className = ''" name="dob" id='do'></p>
+                    <h2>Loan Tenure of the Client:</h2>
+                    <p><input id="LoanTenure" placeholder="Loan Tenure" oninput="this.className = ''" name="tenure"></p>
+                    <h2>Client Location:</h2>
+                    <p><input id="cLocation" placeholder="Location" oninput="this.className = ''" name="location"></p>
+                    <h2>Salary/Self-Employed:</h2>
+                    <p><input id="sincome" placeholder="Income.." oninput="this.className = ''" name="income">
+                    </p>
+
                     <h2>ITR:</h2>
                     <p><input id="itr" placeholder="ITR" oninput="this.className = ''" name="itr"></p>
-                    <h2>Prop in Gram Panchayat/Municipal:
-                        <h2>
-                            <p><input id="grampanchayat" oninput="this.className = ''" name="prop"></p>
-                            <h2>Cibil Score:
-                                <h2>
-                                    <p><input id="cililscore" type='text' placeholder="Cibil Score.."
-                                            oninput="this.className = ''" name="cibil"></p>
-                </div>
-                <div class="tab">
-                    <h2>Degree of difficulty:
-                        <h2>
-                            <p><input id="dodifficulty" placeholder="" oninput="this.className = ''" name="difficulty">
-                            </p>
-                            <h2>Paperwork:
-                                <h2>
-                                    <p><input id="paperwork" placeholder="" oninput="this.className = ''" name="paper">
-                                    </p>
-                                    <h2>Eligibility Value:
-                                        <h2>
-                                            <p><input id="eligibilityvalue" placeholder="" oninput="this.className = ''"
-                                                    name="eligibility"></p>
-                                        
-                                        <h2>Credit Worthiness:
-                                        <h2>
-                                            <p><input id="creditworthiness" placeholder="" oninput="this.className = ''" name="creditworthiness"></p>
-                                    
+                    <h2>Prop in Gram Panchayat/Municipal:</h2>
+                    <p><input id="grampanchayat" oninput="this.className = ''" name="prop"></p>
+                    <h2>Cibil Score: </h2>
+                    <p><input id="cililscore" type='text' placeholder="Cibil Score.." oninput="this.className = ''" name="cibil">
+                    </p>
 
+                    <h2>Degree of difficulty:</h2>
+                    <p><input id="dodifficulty" placeholder="" oninput="this.className = ''" name="difficulty">
+                    </p>
+                    <h2>Paperwork:</h2>
+                    <p><input id="paperwork" placeholder="" oninput="this.className = ''" name="paper">
+                    </p>
+                    <h2>Eligibility Value:</h2>
+                    <p><input id="eligibilityvalue" placeholder="" oninput="this.className = ''" name="eligibility">
+                    </p>
+
+                    <h2>Credit Worthiness:</h2>
+                    <p><input id="creditworthiness" placeholder="" oninput="this.className = ''" name="creditworthiness">
+                    </p>
+                    <h2>Products Dropdown In case of Self-Employed: </h2>
+                    <select id="products" name="products" class="dropdownform">
+                        <option value="Banking Surrogate">
+                            <h2>Banking
+                                Surrogate
+                            </h2>
+                        </option>
+                        <option value="LIP">
+                            <h2>LIP
+                            </h2>
+                        </option>
+                        <!-- hi -->
+                        <option value="OD">
+                            <h2>OD
+                            </h2>
+                        </option>
+                        <option value="Low LTV">
+                            <h2>Low
+                                LTV
+                            </h2>
+                        </option>
+                    </select>
                 </div>
-                <div class="tab">
-                    <h2>Products Dropdown In case of Self-Employed:
-                        <h2>
-                            <select id="products" name="products">
-                                <option value="Banking Surrogate">
-                                    <h2>Banking Surrogate<h2>
-                                </option>
-                                <option value="LIP">
-                                    <h2>LIP</h2>
-                                </option>
-                                <option value="OD">
-                                    <h2>OD</h2>
-                                </option>
-                                <option value="Low LTV">
-                                    <h2>Low LTV</h2>
-                                </option>
-                            </select>
-                </div>
-                <div style="overflow:auto;">
-                    <div style="float:right;">
-                        <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                        <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-                    </div>
-                </div>
-                <input type='submit' onsubmit="myFunction()">
-                <div style="text-align:center;margin-top:40px;">
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                    <span class="step"></span>
-                </div>
+                <input type='submit' id="submitsty" onsubmit="myFunction()">
+
+
+
             </form>
             <section class="sources" id="source">
-                <div class="caption" >Home Loan Peers:</div>
+                <div class="caption">Home Loan Peers:</div>
                 <div class="table">
                     <div class="th">
                         <div class="td">No.</div>
@@ -494,10 +470,10 @@
                         <div class="td">Phone Number</div>
                         <div class="td">Payout</div>
                     </div>
-                    
-                    <div  id="t1">
 
-                       <!--
+                    <div id="t1">
+
+                        <!--
                         <div class="tr">
                             <div class="td">2.</div>
                             <div class="td">XYZ</div>
@@ -521,22 +497,16 @@
                         </div>
                         -->
                     </div>
-                    
+
                 </div>
             </section>
 
             <script src='assets/js/main.js'></script>
 
             <script src="assets/js/home.js"></script>
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-                crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-                crossorigin="anonymous"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-                crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
