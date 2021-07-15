@@ -307,30 +307,62 @@
         }
 
         function getvalue() {
-            salary = document.getElementById("salary").value;
+            salary = "" + document.getElementById("salary").value;
             console.log(salary);
+            if (salary == "salary") {
+                console.log("Salary...")
+                document.getElementById("selfEmploed").innerHTML = `
+                <h2>Products Dropdown In case of Self-Employed:</h2>
+                <select id="products" name="products" class="dropdownform">
+                    <option value="product1">
+                        <h2>Banking Surrogate</h2>
+                    </option>
+                    <option value="product2">
+                        <h2>LIP</h2>
+                    </option>
+                    <option value="product3">
+                        <h2>OD</h2>
+                    </option>
+                    <option value="product4">
+                        <h2>Low LTV</h2>
+                    </option>
+                </select>
+                `;
+            } else {
+                document.getElementById("selfEmploed").innerHTML = "";
+            }
             // .style.visibility = "visible";
             // document.getElementById("nextBtn").style.display = "none";
             //  document.getElementById("submitsty").style.visibility = "visible";
         }
+
+        // pratik
+        function checkclibil() {
+            num = parseInt(document.getElementById("clibil").value);
+            console.log(num + 1);
+            if (num < 1000) {
+                return;
+            }
+            alert("Less then 1000 Or Write number");
+        }
     </script>
     <!-- akash -->
     <h1 style="color: aliceblue; margin:5%;">Home Loan</h1>
-    <form id="regForm" action="" onsubmit="handleform()" novalidate>
+    <form id="regForm" action="" onsubmit="handleform()">
         <h1>Details:</h1>
 
         <div>
-            <h2>Age of the Client:</h2>
-            <p><input placeholder="dd/mm/yyyy" type="date" oninput="this.className = ''" name="dob" id='dateofbirth'>
+            <h2>Age of the Client:*</h2>
+            <p><input placeholder="dd/mm/yyyy" type="date" name="dob" id='dateofbirth' required>
             </p>
-            <h2>Loan Tenure of the Client: </h2>
-            <p><input placeholder="Loan Tenure" oninput="this.className = ''" name="tenure"></p>
+            <!-- <h2>Loan Tenure of the Client: </h2>
+            <p><input placeholder="Loan Tenure" name="tenure"></p> -->
             <h2>Client Location:</h2>
-            <p><input placeholder="Location" oninput="this.className = ''" name="location"></p>
+            <p><input placeholder="Location" name="location" required></p>
             <h2>ITR:</h2>
-            <p><input placeholder="ITR" oninput="this.className = ''" name="itr"></p>
-            <h2>Prop in:</h2>
-            <select id="income-drop" name="income-drop" class="dropdownform">
+            <p><input placeholder="ITR" name="itr"></p>
+            <!-- <h2>Prop in:*</h2>
+            <select id="income-drop" name="income-drop" class="dropdownform" required>
                 <option value="salary">
                     <h2>Municipality</h2>
                 </option>
@@ -341,14 +373,15 @@
                     <h2>Other</h2>
                 </option>
 
-            </select>
+            </select> -->
 
-            <h2>Cibil Score:</h2>
-            <p><input placeholder="" oninput="this.className = ''" name="credit" type="number" min="1" max="12" id="clibil"></p>
-            <h2>Paperwork:</h2>
-            <p><input placeholder="" oninput="this.className = ''" name="paper"></p>
+            <h2>Cibil Score:*</h2>
+            <p><input placeholder="" name="credit" type="number" onblur="checkclibil()" id="clibil" required>
+            </p>
+            <!-- <h2>Paperwork:</h2>
+            <p><input placeholder=""  name="paper"></p>
             <h2>Credit Worthiness:</h2>
-            <p><input id="creditworth" placeholder="" oninput="this.className = ''" name="credit"></p>
+            <p><input id="creditworth" placeholder="" oninput="this.className = ''" name="credit"></p> -->
 
             <h2>Your are Salary or Self Employed</h2>
             <select id="salary" class="dropdownform" name="income-drop" onchange="getvalue()">
@@ -362,21 +395,9 @@
                     <h1>Self Employed</h1>
                 </option>
             </select>
-            <h2>Products Dropdown In case of Self-Employed:</h2>
-            <select id="products" name="products" class="dropdownform">
-                <option value="product1">
-                    <h2>Banking Surrogate</h2>
-                </option>
-                <option value="product2">
-                    <h2>LIP</h2>
-                </option>
-                <option value="product3">
-                    <h2>OD</h2>
-                </option>
-                <option value="product4">
-                    <h2>Low LTV</h2>
-                </option>
-            </select>
+            <div id="selfEmploed">
+
+            </div>
         </div>
         <div style="overflow:auto;">
             <div style="float:right;">
@@ -396,41 +417,41 @@
                 </div>
             </div>
 
-            <h1 style="color: aliceblue; margin:5%;">Home Loan</h1>
+            <h1 style="color: aliceblue; ">Home Loan</h1>
             <form id="regForm">
 
 
                 <div class="tab">
                     <h2>Age of the Client:</h2>
-                    <p><input placeholder="dd/mm/yyyy" type="date" oninput="this.className = ''" name="dob" id='do'></p>
+                    <p><input placeholder="dd/mm/yyyy" type="date" name="dob" id='do'></p>
                     <h2>Loan Tenure of the Client:</h2>
-                    <p><input id="LoanTenure" placeholder="Loan Tenure" oninput="this.className = ''" name="tenure"></p>
+                    <p><input id="LoanTenure" placeholder="Loan Tenure" name="tenure"></p>
                     <h2>Client Location:</h2>
-                    <p><input id="cLocation" placeholder="Location" oninput="this.className = ''" name="location"></p>
+                    <p><input id="cLocation" placeholder="Location" name="location"></p>
                     <h2>Salary/Self-Employed:</h2>
-                    <p><input id="sincome" placeholder="Income.." oninput="this.className = ''" name="income">
+                    <p><input id="sincome" placeholder="Income.." name="income">
                     </p>
 
                     <h2>ITR:</h2>
-                    <p><input id="itr" placeholder="ITR" oninput="this.className = ''" name="itr"></p>
+                    <p><input id="itr" placeholder="ITR" name="itr"></p>
                     <h2>Prop in Gram Panchayat/Municipal:</h2>
-                    <p><input id="grampanchayat" oninput="this.className = ''" name="prop"></p>
+                    <p><input id="grampanchayat" name="prop"></p>
                     <h2>Cibil Score: </h2>
-                    <p><input id="cililscore" type='text' placeholder="Cibil Score.." oninput="this.className = ''" name="cibil">
+                    <p><input id="cililscore" type='text' placeholder="Cibil Score.." name="cibil">
                     </p>
 
                     <h2>Degree of difficulty:</h2>
-                    <p><input id="dodifficulty" placeholder="" oninput="this.className = ''" name="difficulty">
+                    <p><input id="dodifficulty" placeholder="" name="difficulty">
                     </p>
                     <h2>Paperwork:</h2>
-                    <p><input id="paperwork" placeholder="" oninput="this.className = ''" name="paper">
+                    <p><input id="paperwork" placeholder="" name="paper">
                     </p>
                     <h2>Eligibility Value:</h2>
-                    <p><input id="eligibilityvalue" placeholder="" oninput="this.className = ''" name="eligibility">
+                    <p><input id="eligibilityvalue" placeholder="" name="eligibility">
                     </p>
 
                     <h2>Credit Worthiness:</h2>
-                    <p><input id="creditworthiness" placeholder="" oninput="this.className = ''" name="creditworthiness">
+                    <p><input id="creditworthiness" placeholder="" name="creditworthiness">
                     </p>
                     <h2>Products Dropdown In case of Self-Employed: </h2>
                     <select id="products" name="products" class="dropdownform">
@@ -499,8 +520,25 @@
                     </div>
 
                 </div>
-            </section>
 
+            </section>
+            <div>
+                <br>
+                <br>
+                <h1>
+
+                    Paper<input type="number" style="width: 13%; border-radius: 1.5rem; margin: 1rem; ">/10</h1>
+                <br>
+                <h1>
+
+                    Quality<input type="number" style="width: 13%; border-radius: 1.5rem; margin: 1rem;  ">/10</h1>
+                <br>
+                <h1>
+
+                    Credit<input type="number" style="width: 13%; border-radius: 1.5rem; margin: 1rem; ">/10</h1>
+                <br>
+
+            </div>
             <script src='assets/js/main.js'></script>
 
             <script src="assets/js/home.js"></script>
