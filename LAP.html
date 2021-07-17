@@ -244,11 +244,14 @@
         var salary = "salary";
         var q = "";
         var s = "";
+        var count=0;
         const handleform = async(e) => {
             event.preventDefault();
+            count++;
             let dob = document.getElementById("dateofbirth").value;
             let clibil = document.getElementById("clibil").value;
-            const data = {
+            let loan="lap";
+             const data = {
                 dob,
                 clibil,
                 salary
@@ -266,7 +269,7 @@
                 document.getElementById("source").innerHTML = "<h1>You are below 18 year of age..</h1>"
             }
             try {
-                const response = await axios.get(` http://127.0.0.1:5000/alldata/${dob}/${clibil}/${salary}`);
+                const response = await axios.get(` http://127.0.0.1:5000/laploan/${dob}/${clibil}/${salary}/${loan}`);
                 if (typeof response == "undefined") {
                     document.getElementById("source").style.display = "block";
                     document.getElementById("source").innerHTML = "<h1>Please wait Your Response is being processed..</h1>"
@@ -288,7 +291,9 @@
 
                 }
                 if (response.data.data.length > 0)
-                    document.getElementById("t1").remove();
+                document.getElementById("t1").style.display="none";
+                if(count>1)
+                        window.location.reload(); 
                 var p = document.getElementById("source").innerHTML;
                 p = p + s;
                 document.getElementById("source").innerHTML = p;
@@ -296,8 +301,11 @@
                 console.log(p);
                 if (response.data.data.length == 0) {
                     document.getElementById("source").style.display = "block";
-
+                      
                     document.getElementById("source").innerHTML = "<h1>No Data To show..</h1>"
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 3000);
 
                 }
             } catch (error) {
@@ -482,7 +490,7 @@
 
             </form>
             <section class="sources" id="source">
-                <div class="caption">Home Loan Peers:</div>
+                <div class="caption">Lap Loan Peers:</div>
                 <div class="table">
                     <div class="th">
                         <div class="td">No.</div>

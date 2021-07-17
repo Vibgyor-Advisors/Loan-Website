@@ -244,37 +244,45 @@
         var salary = "salary";
         var q = "";
         var s = "";
+        var count=0;
         const handleform = async(e) => {
             event.preventDefault();
+            count++;
             let dob = document.getElementById("dateofbirth").value;
             let clibil = document.getElementById("clibil").value;
+            let loan="pl";
             const data = {
                 dob,
                 clibil,
-                salary
+                salary,
+                loan
             }
             console.log(data);
             var today = new Date();
             var birthDate = new Date(dob);
             var age = today.getFullYear() - birthDate.getFullYear();
             var m = today.getMonth() - birthDate.getMonth();
+
             if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
                 age--;
             }
             if (age < 18) {
                 document.getElementById("source").style.display = "block";
                 document.getElementById("source").innerHTML = "<h1>You are below 18 year of age..</h1>"
+                   
             }
             try {
-                const response = await axios.get(` http://127.0.0.1:5000/alldata/${dob}/${clibil}/${salary}`);
+                const response = await axios.get(` http://127.0.0.1:5000/getpersonalloan/${dob}/${clibil}/${salary}/${loan}`);
                 if (typeof response == "undefined") {
                     document.getElementById("source").style.display = "block";
                     document.getElementById("source").innerHTML = "<h1>Please wait Your Response is being processed..</h1>"
                 } else {
 
                     if (response.data.data.length > 0) {
-                        console.log(response.data.data);
+                        
                         document.getElementById("source").style.display = "block";
+                        if(count>1)
+                        window.location.reload();
                         for (let i = 0; i < response.data.data.length; i++) {
                             // console.log(response.data.data[i]); 
                             q = document.getElementById("t1").innerHTML = `<div  class='tbody'><div class='tr'><div class='td'>${i + 1}</div><div class='td'>${response.data.data[i].Name}</div><div class='td'>${response.data.data[i].Person}</div><div class='td'>${response.data.data[i].Phone}</div><div class='td'>${response.data.data[i].Payout}</div></div></div>`;
@@ -288,7 +296,8 @@
 
                 }
                 if (response.data.data.length > 0)
-                    document.getElementById("t1").remove();
+                document.getElementById("t1").style.display="none";
+
                 var p = document.getElementById("source").innerHTML;
                 p = p + s;
                 document.getElementById("source").innerHTML = p;
@@ -298,7 +307,9 @@
                     document.getElementById("source").style.display = "block";
 
                     document.getElementById("source").innerHTML = "<h1>No Data To show..</h1>"
-
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 3000);
                 }
             } catch (error) {
                 console.error(error);
@@ -477,12 +488,9 @@
                     </select>
                 </div>
                 <input type='submit' id="submitsty" onsubmit="myFunction()">
-
-
-
             </form>
             <section class="sources" id="source">
-                <div class="caption">Home Loan Peers:</div>
+                <div class="caption">Personal Loan Peers:</div>
                 <div class="table">
                     <div class="th">
                         <div class="td">No.</div>

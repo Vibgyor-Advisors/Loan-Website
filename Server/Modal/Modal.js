@@ -20,6 +20,9 @@ const bankSchema=new mongoose.Schema({
     },
     Phone:{
         type:String
+    },
+    type:{
+        type:String
     }
 });
 const Subscribe=mongoose.model('Subscribe',bankSchema);
